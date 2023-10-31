@@ -10,7 +10,7 @@ env:
   RELEASE_DIR: artifacts
   GITHUB_REF: "${{ github.ref }}"
   WINDOWS_TARGET: x86_64-pc-windows-msvc
-  MACOS_TARGET: x86_64-apple-darwin
+  MACOS_TARGET: apple-chip-darwin
   LINUX_AMD64_TARGET: x86_64-unknown-linux-musl
   LINUX_ARM64_TARGET: aarch64-unknown-linux-musl
 
@@ -27,7 +27,7 @@ jobs:
           - target: aarch64-unknown-linux-musl
             os: ubuntu-latest
             rust: stable
-          - target: x86_64-apple-darwin
+          - target: apple-chip-darwin
             os: macos-latest
             rust: stable
           - target: x86_64-pc-windows-msvc
