@@ -40,7 +40,7 @@ jobs:
         with:
           toolchain: ${{ matrix.rust }}
           override: true
-          target: wasm32-unknown-unknown
+          target: ${{ matrix.target }}
 
       - name: Query version number
         id: get_version
@@ -72,11 +72,8 @@ jobs:
         if: matrix.os == 'macos-latest'
         run: brew install p7zip
 
-      - name: Add rustup target
-        run: rustup target add ${{ matrix.target }}
-
       - name: Build
-        run: cargo build --release --target ${{ matrix.target }}
+        run: cargo build --release
 
       - name: Set RUSTFLAGS (Windows)
         if: matrix.os == 'windows-latest'
@@ -98,15 +95,12 @@ jobs:
         run: |
           cp ./target/${{ matrix.target }}/release/${{ env.RELEASE_BIN }}.exe ./${{ env.RELEASE_DIR }}/${{ env.RELEASE_BIN }}-${{ steps.get_version.outputs.VERSION }}-${{ matrix.target }}/${{ env.RELEASE_BIN }}.exe
 
-      - name: Create tarball
-        shell: bash
-        run: 7z a -ttar -so -an ./${{ env.RELEASE_DIR }}/${{ env.RELEASE_BIN }}-${{ steps.get_version.outputs.VERSION }}-${{ matrix.target }} | 7z a -si ./${{ env.RELEASE_DIR }}/${{ env.RELEASE_BIN }}-${{ steps.get_version.outputs.VERSION }}-${{ matrix.target }}.tar.gz
-
-      - name: Upload Zip
-        uses: actions/upload-artifact@v1
+      - name: Upload Binary
+        uses: actions/upload-artifact@v2
         with:
           name: ${{ matrix.target }}
-          path: ./${{ env.RELEASE_DIR }}
+          path: ./target/${{ matrix.target }}/release/${{ env.RELEASE_BIN }}
+          if-no-files-found: error
 
   release:
     name: GitHub Release
