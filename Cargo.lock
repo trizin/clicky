@@ -150,6 +150,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4bfbf56724aa9eca8afa4fcfadeb479e722935bb2a0900c2d37e0cc477af0688"
 
 [[package]]
+name = "clicky"
+version = "0.1.0"
+dependencies = [
+ "device_query",
+ "rand",
+ "rodio",
+ "toml",
+]
+
+[[package]]
 name = "combine"
 version = "4.6.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -345,16 +355,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c5f195fe497f702db0f318b07fdd68edb16955aed830df8363d837542f8f935a"
 dependencies = [
  "wasm-bindgen",
-]
-
-[[package]]
-name = "keyboard_sounds"
-version = "0.1.0"
-dependencies = [
- "device_query",
- "rand",
- "rodio",
- "toml",
 ]
 
 [[package]]

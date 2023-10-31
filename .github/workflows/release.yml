@@ -151,9 +151,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.LINUX_AMD64_TARGET }}.tar.gz
+          asset_path: ./clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.LINUX_AMD64_TARGET }}
           asset_content_type: application/gzip
-          asset_name: clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.LINUX_AMD64_TARGET }}.tar.gz
+          asset_name: clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.LINUX_AMD64_TARGET }}
 
       - name: Release Linux arm64 tarball
         uses: actions/upload-release-asset@v1
@@ -161,9 +161,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.LINUX_ARM64_TARGET }}.tar.gz
+          asset_path: ./clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.LINUX_ARM64_TARGET }}
           asset_content_type: application/gzip
-          asset_name: clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.LINUX_ARM64_TARGET }}.tar.gz
+          asset_name: clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.LINUX_ARM64_TARGET }}
 
       - name: Release Windows tarball
         uses: actions/upload-release-asset@v1
@@ -171,9 +171,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.WINDOWS_TARGET }}.tar.gz
+          asset_path: ./clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.WINDOWS_TARGET }}.exe
           asset_content_type: application/gzip
-          asset_name: clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.WINDOWS_TARGET }}.tar.gz
+          asset_name: clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.WINDOWS_TARGET }}
 
       - name: Release MacOS tarball
         uses: actions/upload-release-asset@v1
@@ -181,6 +181,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.MACOS_TARGET }}.tar.gz
+          asset_path: ./clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.MACOS_TARGET }}
           asset_content_type: application/gzip
-          asset_name: clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.MACOS_TARGET }}.tar.gz
+          asset_name: clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.MACOS_TARGET }}
