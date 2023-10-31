@@ -3,14 +3,14 @@ mod sound_config;
 extern crate device_query;
 extern crate rodio;
 
-use std::{io::Cursor, sync::Arc, time::Instant};
+use std::{io::Cursor, sync::Arc};
 
 use device_query::{DeviceQuery, DeviceState};
 use rand::{seq::SliceRandom, Rng};
 use rodio::{Decoder, OutputStream, OutputStreamHandle, Sink};
 use sound_config::cache_sounds;
 
-static AUDIO_PATH: &str = "./output";
+static AUDIO_PATH: &str = "./audio";
 
 fn play_key_sound(raw_data: Arc<Vec<u8>>, stream_handle: &OutputStreamHandle) -> Sink {
     let sink = Sink::try_new(stream_handle).unwrap();
