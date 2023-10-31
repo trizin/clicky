@@ -174,7 +174,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.WINDOWS_TARGET }}/clicky.exe
+          asset_path: ./clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.WINDOWS_TARGET }}.exe
           asset_content_type: application/vnd.microsoft.portable-executable
           asset_name: clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.WINDOWS_TARGET }}
 
