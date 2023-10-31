@@ -154,7 +154,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.LINUX_AMD64_TARGET }}
+          asset_path: ./clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.LINUX_AMD64_TARGET }}/clicky
           asset_name: clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.LINUX_AMD64_TARGET }}
 
       - name: Release Linux arm64 tarball
@@ -163,7 +163,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.LINUX_ARM64_TARGET }}
+          asset_path: ./clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.LINUX_ARM64_TARGET }}/clicky
           asset_name: clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.LINUX_ARM64_TARGET }}
 
       - name: Release Windows tarball
@@ -172,7 +172,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.WINDOWS_TARGET }}.exe
+          asset_path: ./clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.WINDOWS_TARGET }}/clicky.exe
           asset_name: clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.WINDOWS_TARGET }}
 
       - name: Release MacOS tarball
@@ -181,5 +181,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.MACOS_TARGET }}
+          asset_path: ./clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.MACOS_TARGET }}/clicky
           asset_name: clicky-${{ steps.get_version.outputs.VERSION }}-${{ env.MACOS_TARGET }}
