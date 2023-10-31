@@ -13,7 +13,6 @@ use sound_config::cache_sounds;
 static AUDIO_PATH: &str = "./output";
 
 fn play_key_sound(raw_data: Arc<Vec<u8>>, stream_handle: &OutputStreamHandle) -> Sink {
-    let start_time = Instant::now();
     let sink = Sink::try_new(stream_handle).unwrap();
 
     let base_volume = 1.0;
@@ -30,7 +29,6 @@ fn play_key_sound(raw_data: Arc<Vec<u8>>, stream_handle: &OutputStreamHandle) ->
     let source = Decoder::new(cursor).unwrap();
 
     sink.append(source);
-    let duration = start_time.elapsed();
     sink
 }
 
